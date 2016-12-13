@@ -1,0 +1,37 @@
+div.content {
+	font-family:Microsoft JhengHei; 
+	max-width: 1000px;
+	margin-left:auto; 
+	margin-right:auto;
+	width:auto;
+	padding-top: 10px;
+	top: 100px;
+}
+
+div#background_block{
+	background-color: lightyellow;
+	padding: 10px;
+	border-radius:10px;
+}
+div#experience_block{
+	background-color: lightblue;
+	padding: 10px;
+	border-radius:10px;
+}
+div#license_block{
+	background-color: lightgreen;
+	padding: 10px;
+	border-radius:10px;
+}
+
+div.content li {
+	font-size: 18px;
+}
+div.content h2 {
+	color: blue;
+}
+div.license li{
+	padding: 5px;
+	margin-left: 30px;
+}
+

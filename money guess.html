@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript">
+    var total;
+       function Show(User)
+       {
+          total = parseInt (document.getElementById("UserMoney").innerHTML, 10);
+          var UserMoney = parseInt (document.getElementById("money").value, 10);
+          if(UserMoney == 0) {
+            alert(' ~ 花錢下注才給玩 ~ ');
+          }else if(total >= 0){
+
+          if (User==0)
+          {
+              document.getElementById("Player").innerHTML="剪刀";
+          }
+          else if (User==1)
+          {
+              document.getElementById("Player").innerHTML="石頭";
+          }
+          else
+          {
+              document.getElementById("Player").innerHTML="布";
+          }
+
+          var C = Math.floor(Math.random() * 3);
+          switch (C)
+          {
+            case 0: document.getElementById("Computer").innerHTML="剪刀";  break;
+            case 1: document.getElementById("Computer").innerHTML="石頭";  break;
+            case 2: document.getElementById("Computer").innerHTML="布";  break;
+          }
+          var different = User-C;
+          if (different==0)
+          {
+             document.getElementById("Judge").innerHTML="平手";
+             document.getElementById("Judge").className="Brown";
+          }
+          else if (different==1 || different==-2)
+          {
+             document.getElementById("Judge").innerHTML="使用者獲勝";
+             document.getElementById("Judge").className="Blue";
+             total += UserMoney;
+          }
+          else 
+          {
+             document.getElementById("Judge").innerHTML="電腦獲勝";
+             document.getElementById("Judge").className="Red";
+             total -= UserMoney;
+          }
+
+             document.getElementById("UserMoney").innerHTML = total;  
+             
+             x = document.getElementsByTagName("img");
+            document.getElementById("UserImg").src = x[User].src;
+            document.getElementById("UserImg").className="resultImg";
+            document.getElementById("ComputerImg").src = x[C].src;
+            document.getElementById("ComputerImg").className="resultImg";
+            if(total < 0){
+                alert('輸光啦~');
+            }
+        }else{
+          alert('沒錢還想玩 ㄎㄎ');
+        }
+       }
+
+       function reset() {
+          document.getElementById("UserMoney").innerHTML = 0;
+          total = 0;
+       }
+  </script>
+
+<style type="text/css">
+  .Red {
+    color: red; 
+    font-size: 12pt;
+  }
+  .Blue {
+    color: blue; 
+    font-size: 12pt;
+  }
+  .Brown {
+    color: brown;
+    font-size: 12pt;
+  }
+  .resultImg{
+    width: 30px;
+  }
+  body{
+    font-family:Microsoft JhengHei;
+    max-width: 1000px;
+    padding-left: 20px;
+    margin-left:auto; 
+    margin-right:auto;
+    background-color: lightgray;
+  }
+  img.choose-photo:active {
+    border-style: inset;
+    border-radius: 20px;
+  }
+  img{
+    border-style: outset;
+    border-radius: 20px;
+    margin: 10px;
+  }
+
+  h1.T{
+    color: white;
+    background-color: black;
+    top: 0px;
+    padding: 20px;
+    width: 450px;
+    border: 5px outset; 
+  }
+</style>
+
+</head>
+
+<body>
+  <h1 class="T" >Paper. Scissor. Stone. Money</h1>
+
+  <table border="groove yellow" width= "500px" color="green"  >
+    <tr>
+      <th>賭注 ( 1 - 500 )：</th> 
+      <th colspan="2" valign="center" ><input type="number" id="money" min="5" max="500" step="5" value="10" ></th>
+    </tr>
+    <tr>
+      <th><img src="img/scissor.png" onClick="Show(0)" class="choose-photo" /></th>
+      <th><img src="img/rock.png" onClick="Show(1)" class="choose-photo" /></th>
+      <th><img src="img/paper.png" onClick="Show(2)" class="choose-photo" /></th>
+    </tr>
+    <tr>
+      <th>使用者出：</th>
+      <th id="Player"></th>
+      <th><img id="UserImg"/></th>
+    </tr>
+    <tr>
+      <th>電腦出：</th>
+      <th id="Computer"></th>
+      <th><img id="ComputerImg"/></th>
+    </tr>
+    <tr>
+      <th colspan="2" valign="center">最後結果： </th>
+      <th id="Judge" class="Blue"></th>
+    </tr>
+    <tr>
+      <th colspan="2" valign="center">現有賭金：</th>
+      <th id="UserMoney">500</th>
+    </tr>
+  </table>
+  <input type="button" value="Reset" onClick="reset()">
+</body>
+</html> 
