@@ -12,63 +12,63 @@
             alert(' ~ 花錢下注才給玩 ~ ');
           }else if(total >= 0){
 
-          if (User==0)
-          {
-              document.getElementById("Player").innerHTML="剪刀";
-          }
-          else if (User==1)
-          {
-              document.getElementById("Player").innerHTML="石頭";
-          }
-          else
-          {
-              document.getElementById("Player").innerHTML="布";
-          }
+              if (User==0)
+              {
+                  document.getElementById("Player").innerHTML="剪刀";
+              }
+              else if (User==1)
+              {
+                  document.getElementById("Player").innerHTML="石頭";
+              }
+              else
+              {
+                  document.getElementById("Player").innerHTML="布";
+              }
 
-          var C = Math.floor(Math.random() * 3);
-          switch (C)
-          {
-            case 0: document.getElementById("Computer").innerHTML="剪刀";  break;
-            case 1: document.getElementById("Computer").innerHTML="石頭";  break;
-            case 2: document.getElementById("Computer").innerHTML="布";  break;
-          }
-          var different = User-C;
-          if (different==0)
-          {
-             document.getElementById("Judge").innerHTML="平手";
-             document.getElementById("Judge").className="Brown";
-          }
-          else if (different==1 || different==-2)
-          {
-             document.getElementById("Judge").innerHTML="使用者獲勝";
-             document.getElementById("Judge").className="Blue";
-             total += UserMoney;
-          }
-          else 
-          {
-             document.getElementById("Judge").innerHTML="電腦獲勝";
-             document.getElementById("Judge").className="Red";
-             total -= UserMoney;
-          }
+              var C = Math.floor(Math.random() * 3);
+              switch (C)
+              {
+                case 0: document.getElementById("Computer").innerHTML="剪刀";  break;
+                case 1: document.getElementById("Computer").innerHTML="石頭";  break;
+                case 2: document.getElementById("Computer").innerHTML="布";  break;
+              }
+              var different = User-C;
+              if (different==0)
+              {
+                 document.getElementById("Judge").innerHTML="平手";
+                 document.getElementById("Judge").className="Brown";
+              }
+              else if (different==1 || different==-2)
+              {
+                 document.getElementById("Judge").innerHTML="使用者獲勝";
+                 document.getElementById("Judge").className="Blue";
+                 total += UserMoney;
+              }
+              else 
+              {
+                 document.getElementById("Judge").innerHTML="電腦獲勝";
+                 document.getElementById("Judge").className="Red";
+                 total -= UserMoney;
+              }
 
-             document.getElementById("UserMoney").innerHTML = total;  
-             
-             x = document.getElementsByTagName("img");
-            document.getElementById("UserImg").src = x[User].src;
-            document.getElementById("UserImg").className="resultImg";
-            document.getElementById("ComputerImg").src = x[C].src;
-            document.getElementById("ComputerImg").className="resultImg";
-            if(total < 0){
-                alert('輸光啦~');
-            }
+                 document.getElementById("UserMoney").innerHTML = total;  
+                 
+                 x = document.getElementsByTagName("img");
+                document.getElementById("UserImg").src = x[User].src;
+                document.getElementById("UserImg").className="resultImg";
+                document.getElementById("ComputerImg").src = x[C].src;
+                document.getElementById("ComputerImg").className="resultImg";
+                if(total < 0){
+                    alert('輸光啦~');
+                }
         }else{
           alert('沒錢還想玩 ㄎㄎ');
         }
        }
 
        function reset() {
-          document.getElementById("UserMoney").innerHTML = 0;
-          total = 0;
+          document.getElementById("UserMoney").innerHTML = 500;
+          total = 500;
        }
   </script>
 
@@ -94,7 +94,6 @@
     padding-left: 20px;
     margin-left:auto; 
     margin-right:auto;
-    background-color: lightgray;
   }
   img.choose-photo:active {
     border-style: inset;
@@ -121,7 +120,7 @@
 <body>
   <h1 class="T" >Paper. Scissor. Stone. Money</h1>
 
-  <table border="groove yellow" width= "500px" color="green"  >
+  <table border="groove" width= "500px" color="green" style="float:left; position: relative;" >
     <tr>
       <th>賭注 ( 1 - 500 )：</th> 
       <th colspan="2" valign="center" ><input type="number" id="money" min="5" max="500" step="5" value="10" ></th>
@@ -150,6 +149,6 @@
       <th id="UserMoney">500</th>
     </tr>
   </table>
-  <input type="button" value="Reset" onClick="reset()">
+  <input type="button" value="重玩" onClick="reset()" style="padding:20px;font-size: 20px; background-color: yellow; font-weight: bold; float:left;  margin-left: 10px; margin-top: -100px;">
 </body>
 </html> 

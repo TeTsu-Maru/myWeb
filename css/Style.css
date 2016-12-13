@@ -12,6 +12,7 @@ div#background_block{
 	background-color: lightyellow;
 	padding: 10px;
 	border-radius:10px;
+	font-weight: bold;
 }
 div#experience_block{
 	background-color: lightblue;
@@ -34,4 +35,21 @@ div.license li{
 	padding: 5px;
 	margin-left: 30px;
 }
+#algorithm h2{
+	color: blue;
+}
 
+#algorithm {
+	font-family:Microsoft JhengHei; 
+}
+img.scrollToTop {
+    position: fixed;
+    right: 5px;
+    bottom: 105px;
+}
+
+img.scrollToButtom {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+}

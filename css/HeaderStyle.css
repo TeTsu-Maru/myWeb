@@ -89,9 +89,3 @@
     	height: 50px;
     	float:left;
     }
-
-    img.scrollToTop {
-        position: fixed;
-        right: 5px;
-        bottom: 5px;
-    }
