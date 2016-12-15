@@ -45,11 +45,13 @@ div.license li{
 img.scrollToTop {
     position: fixed;
     right: 5px;
-    bottom: 105px;
+    bottom: 80px;
+    width: 80px;
 }
 
 img.scrollToButtom {
     position: fixed;
     right: 5px;
     bottom: 5px;
+    width: 80px;
 }
